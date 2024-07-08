@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option csharp_namespace = "Client.Proto";
+
+import "google/protobuf/timestamp.proto";
+
+service Inventory {
+    rpc GetProductById (ProductIdRequest) returns (ProductExistenceResponse);
+    rpc AddProduct (Product) returns (AddProductResponse);
+    rpc UpdateProduct (Product) returns (UpdateProductResponse);
+    rpc AddBulkProducts (stream Product) returns (BulkProductResponse);
+    rpc GetProductReport (ProductReportRequest) returns (stream Product);
+}
+
+enum Category {
+    Not;
+    Food ;
+    Models;
+    LapTops;
+}
+
+message Product {
+    int32 id = 1;
+    string title = 2;
+    double price = 3;
+    int32 quantity = 4;
+    Category category = 5;
+    google.protobuf.Timestamp expireDate = 6;
+}
+
+message ProductIdRequest {
+    int32 id = 1;
+}
+
+message ProductExistenceResponse {
+    bool exists = 1;
+}
+
+message AddProductResponse {
+    string message = 1;
+}
+
+message UpdateProductResponse {
+    string message = 1;
+}
+
+message BulkProductResponse {
+  int32 insertedCount = 1;
+}
+
+message ProductReportRequest {
+  bool priceOrder = 1;
+  Category categoryFilter = 2;
+}
