@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Client",
+    "\\Client\\Entities",
+    "\\Client\\obj",
+    "\\Client\\obj\\Debug",
+    "\\Client\\Properties",
+    "\\Server",
+    "\\Server\\Entities",
+    "\\Server\\Helper",
+    "\\Server\\Interfaces"
+  ],
+  "SelectedNode": "\\Client",
+  "PreviewInSolutionExplorer": false
+}
